@@ -1,0 +1,8 @@
+#!/bin/sh
+#avrdude -p m32 -P /dev/ttyUSB0  -b 115200 -c butterfly -U lfuse:w:0xFE:m && \
+#avrdude -p m32 -P /dev/ttyUSB0  -b 115200 -c butterfly -U hfuse:w:0xCC:m && \
+#avrdude -p m32 -P /dev/ttyUSB0  -b 115200 -c butterfly -U lock:w:0xEF:m 
+
+uisp -dprog=avr910 -dpart=auto -dserial=/dev/ttyUSB0 -dspeed=115200 --wr_fuse_l=0xd0
+uisp -dprog=avr910 -dpart=auto -dserial=/dev/ttyUSB0 -dspeed=115200 --wr_fuse_h=0x99 
+uisp -dprog=avr910 -dpart=auto -dserial=/dev/ttyUSB0 -dspeed=115200 --wr_lock=0xff
